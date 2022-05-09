@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "strict" : true
+  },
+  "include" : [
+    "src/**/*"
+  ]
+}
+// json file에 주석달수있게 하는거 -> settings.json에서 jsonc 설정.
