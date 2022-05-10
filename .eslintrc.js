@@ -4,5 +4,6 @@ module.exports = {
     node: true,
     es2020: true,
   },
-  extends: ['airbnb-base', 'plugin:node/recommended','prettier'],
+  extends: ['airbnb-base', 'prettier'],
+  parser: ['babel-eslint']
 }
