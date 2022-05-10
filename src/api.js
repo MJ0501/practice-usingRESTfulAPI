@@ -7,7 +7,6 @@
  * @property {string} content
  * */
 
-
 /**
  * @typedef APIResponse
  * @property {number} statusCode
@@ -20,24 +19,27 @@
  * @property {'GET' | 'POST'} method
  * @property {(matches: string[], body: Object.<string, *> | undefined )=> Promise<APIResponse>} callback
  */
-
+//database.json에서 읽어올 것
 const fs = require('fs')
 
 const DB_JSON_FILENAME = 'database.json'
 
 /** @return {Promise<Post[]>} */
-async function getPosts(){
-  const json = await fs.promises.readFile(DB_JSON_FILENAME,'utf-8')
+async function getPosts() {
+  const json = await fs.promises.readFile(DB_JSON_FILENAME, 'utf-8')
   return JSON.parse(json).posts
 }
 
 /** @param {Post[]} posts */
-async function savePosts(posts){
+async function savePosts(posts) {
   const content = {
     posts,
   }
-  return fs.promises.writeFile(DB_JSON_FILENAME, JSON.stringify(content),'utf-8')
-
+  return fs.promises.writeFile(
+    DB_JSON_FILENAME,
+    JSON.stringify(content),
+    'utf-8'
+  )
 }
 
 /** @type {Route[]} */
@@ -81,10 +83,10 @@ const routes = [
     url: /^\/posts$/,
     method: 'POST',
     callback: async (_, body) => {
-      if(!body){
-        return{
+      if (!body) {
+        return {
           statusCode: 400,
-          body: 'Ill-formed request'
+          body: 'Ill-formed request',
         }
       }
       /** @type {string} */
@@ -93,7 +95,7 @@ const routes = [
       const newPost = {
         id: title.replace(/\s/g, '_'),
         title,
-        content: body.content, 
+        content: body.content,
       }
 
       const posts = await getPosts()

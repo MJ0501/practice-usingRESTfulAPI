@@ -1,6 +1,6 @@
 {
   "posts": [
-    { "id": "first_post", "title": "가나다라", "content": "hihihihihi" },
+    { "id": "first", "title": "가나다라", "content": "hihihihihi" },
     { "id": "id_B", "title": "title is blank", "content": "content_content" },
     { "id": "DUUUUUU", "title": "DUUUUUU", "content": "Content_DSFsdf" }
   ]

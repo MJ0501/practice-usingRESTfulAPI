@@ -50,7 +50,7 @@ const server = http.createServer((req, res) => {
       undefined
 
     const result = await route.callback(regexResult,reqBody)
-    // 당연히 route가 있는 경우가 됨. (굳이 if로 존재확인할 필요X)
+    // 굳이 if로 존재확인할 필요X - 당연히 route가 존재함
     res.statusCode = result.statusCode
 
     if (typeof result.body === 'string') {
